@@ -13,6 +13,17 @@ html {
     white-space: normal;
 }
 
+.button {
+    max-width: 414px;
+    margin: 0 auto
+}
+
+.input {
+    max-width: 600px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
 @media only screen and (max-device-width: 1920px) {
 
     :root {

@@ -4,7 +4,7 @@ var app = new Framework7({
     root: '#app',
     name: 'LaRiba',
     theme: 'auto',
-    version: 1.0,
+    version: 1.1,
     routes: routes,
     init: false,
     dialog: {
@@ -60,7 +60,11 @@ var app = new Framework7({
     },
     statusbar: {
         iosOverlaysWebView: false,
-        androidOverlaysWebView: false
+        androidOverlaysWebView: false,
+        iosTextColor: 'white',
+        androidTextColor: 'white',
+        iosBackgroundColor: '#0056f6',
+        androidBackgroundColor: '#0056f6'
     },
     sheetModal: {
         closeByOutsideClick: true,
@@ -366,7 +370,7 @@ $$(document).on('deviceready', function () {
 
         let $this = $$(this);
 
-        tabOpen($this, i);
+        //tabOpen($this, i);
 
     });
 
@@ -404,7 +408,7 @@ $$(document).on('deviceready', function () {
 
             $$('.toolbar-menu').css('visibility', 'visible');
 
-        }, 100);
+        }, app.device.ios ? 100 : 0);
 
     });
 
