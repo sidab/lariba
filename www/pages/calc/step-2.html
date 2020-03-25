@@ -1,0 +1,203 @@
+<template>
+
+    <div class="page bg-color-white">
+
+        <div class="navbar">
+
+            <div class="navbar-inner">
+
+                <div class="left">
+
+                    <a href="#" class="link back">
+
+                        <i class="icon icon-back"></i>
+                        <span>Назад</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="title text-align-center margin-horizontal">Введите первоначальный взнос</div>
+
+            <div class="input margin form-store-data" id="calc-step-2">
+
+                <input type="number" name="firstPay" class="text-align-center width-100" value="{{firstPay}}">
+
+                <span>₽</span>
+
+            </div>
+
+            <div class="block">
+
+                <button @click="next" class="button button-fill button-large elevation-20">Продолжить</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} .title {
+        font-size: 36px;
+        font-weight: 100;
+        margin-top: 100px;
+    }
+
+    {{this}} .input {
+                 position: relative;
+                 border-radius: 10px;
+                 height: 70px;
+                 line-height: 70px;
+                 background: #eee;
+             }
+
+    {{this}} .input input {
+                 font-size: 40px;
+                 font-weight: 100;
+                 height: 100%
+             }
+
+    {{this}} .input span {
+                 position: absolute;
+                 right: 0px;
+                 top: 0px;
+                 font-size: 40px;
+                 font-weight: 100;
+                 background: #eee;
+                 width: 40px;
+                 text-align: center;
+                 border-radius: 10px;
+             }
+
+    {{this}} .button {
+                 margin-top: 50px;
+             }
+
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+
+
+
+            }
+
+        },
+        methods: {
+
+            next: function () {
+
+                let component = this;
+                let page = component.$el;
+
+                let input = page.find('input');
+
+                let val = Number(input.val());
+
+                if (isNaN(val)) {
+
+                    app.toast.create({
+                        text: 'Введите число!'
+                    }).open();
+
+                    return;
+
+                }
+
+                if (val > component.sum) {
+
+                    app.toast.create({
+                        text: 'Первоначальный взнос не может быть больше стоимости товара!'
+                    }).open();
+
+                    return;
+
+                }
+
+                if (val < component.firstPay) {
+
+                    app.toast.create({
+                        text: 'Первоначальный взнос не может быть меньше 25% от стоимости товара!'
+                    }).open();
+
+                    return;
+
+                }
+
+                if (val > 500000) {
+
+                    app.toast.create({
+                        text: 'Первоначальный взнос не может превышать 500 000 ₽'
+                    }).open();
+
+                    return;
+
+                }
+
+                document.activeElement.blur();
+
+                $$(this).blur();
+
+                app.views.current.router.navigate('/calc/step-3', {
+                    context: {
+                        sum: component.sum,
+                        firstPay: val
+                    }
+                });
+
+            }
+
+        },
+        on: {
+
+            pageInit: function() {
+
+                let component = this;
+                let page = component.$el;
+
+                page.find('.input').on('click', function () {
+
+                    $$(this).find('input').focus();
+
+                });
+
+                page.find('input').on('keypress', function (e) {
+
+                    if (e.which == 13) {
+
+                        document.activeElement.blur();
+
+                        $$(this).blur();
+
+                        setTimeout(function () {
+
+                            component.next();
+
+                        }, 200);
+
+                    }
+
+                });
+
+            }
+
+        }
+
+    }
+
+</script>

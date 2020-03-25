@@ -1,0 +1,373 @@
+<template>
+
+    <div class="page">
+
+        <div class="page-content">
+
+            <div class="block margin-top no-margin-bottom block-strong">
+
+                <img src="img/logo.png" class="width-100">
+
+            </div>
+
+            <div class="block-title block-title-large">Наши контакты</div>
+
+            <div class="list no-margin-bottom">
+
+                <ul>
+
+                    <li>
+
+                        <div class="item-content">
+
+                            <div class="item-media">
+
+                                <i class="icon f7-icons">map</i>
+
+                            </div>
+
+                            <div class="item-inner">
+
+                                <div class="item-title">Адрес:</div>
+
+                                <div class="item-after">г. Махачкала ул.Абубакарова 12</div>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <div class="item-content">
+
+                            <div class="item-media">
+
+                                <i class="icon f7-icons">clock</i>
+
+                            </div>
+
+                            <div class="item-inner">
+
+                                <div class="item-title">График:</div>
+
+                                <div class="item-after">с 9:00 до 19:00</div>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <div class="item-content">
+
+                            <div class="item-media">
+
+                                <i class="icon f7-icons">phone_circle</i>
+
+                            </div>
+
+                            <div class="item-inner">
+
+                                <div class="item-title">Телефон:</div>
+
+                                <div class="item-after">
+
+                                    <a class="external" target="_system" href="tel:+79882936466">+7(988)293‒64‒66</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <div class="item-content">
+
+                            <div class="item-media">
+
+                                <i class="icon f7-icons">envelope</i>
+
+                            </div>
+
+                            <div class="item-inner">
+
+                                <div class="item-title">Email:</div>
+
+                                <div class="item-after">
+
+                                    <a class="external" target="_system" href="mailto:info@lariba.ru">info@lariba.ru</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="block-title block-title-large">Социальные сети</div>
+
+            <div class="margin-horizontal social-block">
+
+                <a href="https://www.instagram.com/laribafinance/" target="_system" class="elevation-5 external margin-bottom button button-instagram text-color-white button-large">
+
+                    <i class="icon f7-icons">logo_instagram</i>
+
+                    <span>Instagram</span>
+
+                </a>
+
+                <a href="https://www.facebook.com/groups/LaribaFinance" target="_system" class="elevation-5 external margin-bottom button button-facebook text-color-white button-large">
+
+                    <i class="icon f7-icons">logo_facebook</i>
+
+                    <span>Facebook</span>
+
+                </a>
+                
+
+                <a href="https://wa.me/79882936466" target="_system" class="elevation-5 external button button-whatsapp text-color-white button-large">
+
+                    <i class="icon" style="background-image: url(img/icons/whatsapp.png)"></i>
+
+                    <span>WhatsApp</span>
+
+                </a>
+
+
+            </div>
+
+            <div class="block-title block-title-large">Мы на карте</div>
+
+            <div class="block-map">
+
+                <div class="preloader"></div>
+
+                <iframe class="display-none" data-src="https://yandex.ru/map-widget/v1/?um=constructor%3Aba31b49d3133a22fe5d218cda2fe8450254717119edaa2a8c00ef47ca0960e2e&amp;source=constructor" frameborder="0"></iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} .logo {
+        width: 100%;
+        height: 300px;
+        background-image: url('img/logo.png');
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 90%;
+    }
+    {{this}} .block-map {
+                 height: 350px;
+                 position: relative;
+             }
+
+    {{this}} .block-map .preloader {
+
+                 position: absolute;
+                 width: 40px;
+                 height: 40px;
+                 left: calc(50% - 20px);
+                 top: calc(50% - 20px);
+             }
+    {{this}} iframe {
+                 width: 100%;
+                 height: 350px;
+             }
+
+
+    {{this}} .list ul {
+                 background: #FAFAFA;
+             }
+
+    {{this}} .list ul .item-title {
+                 white-space: normal;
+             }
+
+    {{this}} .list ul .item-after {
+                 max-width: 70%;
+                 white-space: normal;
+                 text-align: right;
+             }
+
+
+    {{this}} .contacts-slider {
+                 height: var(--main-slider-height);
+             }
+
+    {{this}} .contacts-slider .swiper-wrapper {
+                 height: var(--main-slider-height);
+             }
+
+    {{this}} .contacts-slider .swiper-slide {
+                 height: var(--main-slider-height);
+             }
+
+    {{this}} .contacts-slider .swiper-slide {
+                 background-repeat: no-repeat;
+                 background-size: auto 100%;
+                 background-position: center;
+             }
+
+    {{this}} .button-instagram {
+                 background: #f09433;
+                 background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+                 background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+                 background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+
+             }
+
+    {{this}} .button-facebook {
+                 background-color: #4C69BA;
+                 background-image: linear-gradient(#4C69BA, #3B55A0);
+             }
+
+    {{this}} .social-block {
+                 margin-top: 30px;
+             }
+
+    {{this}} .button-whatsapp {
+                 background-color: #1cd741;
+             }
+
+    {{this}} .button-whatsapp i {
+                 background-image: url(img/icons/whatsapp.png);
+                 width: 30px;
+                 height: 30px;
+                 background-size: cover;
+             }
+
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+
+
+
+            }
+
+        },
+        methods: {
+
+        },
+        on: {
+
+            pageInit: function() {
+
+                let component = this;
+                let page = component.$el;
+
+                $$('#view-contacts').once('tab:show', function () {
+
+                    /*let images = [];
+
+                    page.find('.contacts-slider').find('.swiper-slide').each(function () {
+
+                        images.push($$(this).data('image'));
+
+                    });
+
+                    var contactsSlider = new Swiper(page.find('.contacts-slider'), {
+                        spaceBetween: 0,
+                        pagination: {
+                            el: '.swiper-pagination',
+                            type: 'bullets',
+                            clickable: true
+                        },
+                        loop: true,
+                        autoplay: {
+                            delay: 5000,
+                        },
+                        lazy: {
+                            loadPrevNext: true
+                        },
+                        on: {
+                            init: function () {
+
+                                let photoBrowserContacts = app.photoBrowser.create({
+                                    photos: images,
+                                    routableModals: false,
+                                    theme: 'dark',
+                                    toolbar: false
+                                });
+
+                                page.find('.contacts-slider').find('.swiper-slide').on('click', function () {
+
+                                    let index = $$(this).data('swiper-slide-index');
+
+                                    photoBrowserContacts.open(Number(index));
+
+                                });
+
+                            }
+                        }
+                    });
+
+                    $$('#view-contacts').on('tab:show', function () {
+
+                        contactsSlider.update();
+
+                    });*/
+
+                    let iframe = page.find('.block-map').find('iframe');
+
+                    component.mapTimeout = setTimeout(function () {
+
+                        iframe.attr('src', iframe.data('src'));
+
+                        iframe.on('load', function () {
+
+                            page.find('.block-map').find('.preloader').addClass('display-none');
+                            iframe.removeClass('display-none');
+
+                        });
+
+                        setTimeout(function () {
+
+                            page.find('.block-map').find('.preloader').addClass('display-none');
+                            iframe.removeClass('display-none');
+
+                        }, 3000);
+
+                    }, 3000);
+
+                });
+
+            },
+            pageBeforeOut: function () {
+
+                var component = this;
+
+                clearTimeout(component.mapTimeout);
+
+            }
+
+        }
+
+    }
+
+</script>

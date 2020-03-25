@@ -1,0 +1,55 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-crosswalk-webview-arm": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-ios-camera-permissions": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-open-blank": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-wkwebview-engine": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-wkwebview-file-xhr": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    }
+  },
+  "dependent_plugins": {
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.lariba.ru"
+    }
+  }
+}

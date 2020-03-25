@@ -1,0 +1,68 @@
+:root {
+    --f7-theme-color: #0056f6;
+    --f7-theme-color-rgb: 0, 86, 246;
+    --f7-theme-color-shade: #0048cd;
+    --f7-theme-color-tint: #206eff;
+}
+
+html {
+    overflow: hidden;
+}
+
+.sheet-modal .item-title {
+    white-space: normal;
+}
+
+@media only screen and (max-device-width: 1920px) {
+
+    :root {
+        --main-slider-height: 500px;
+        --f7-navbar-large-title-font-size: 30px;
+        --card-expandable-height: 160px
+    }
+
+}
+
+@media only screen and (max-device-width: 414px) {
+
+    :root {
+        --main-slider-height: 300px;
+    }
+
+}
+
+@media only screen and (max-device-width: 375px) {
+
+    :root {
+        --f7-navbar-large-title-font-size: 26px;
+        --f7-card-expandable-header-font-size: 24px;
+    }
+
+    .tab-link-calc span {
+        --f7-tabbar-label-font-size: 11px;
+    }
+
+}
+
+@media only screen and (max-device-width: 320px) {
+
+    :root {
+        --f7-card-expandable-header-font-size: 20px;
+        --card-expandable-height: 160px;
+        --main-slider-height: 250px;
+    }
+
+    .tab-link-calc span {
+        --f7-tabbar-label-font-size: 9px;
+    }
+
+}
+
+*:not(input, textarea) {
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    -webkit-touch-callout: none;
+}

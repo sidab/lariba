@@ -1,0 +1,479 @@
+<template>
+
+    <div class="page" data-name="main">
+
+        <div class="navbar navbar-large">
+
+            <div class="navbar-bg"></div>
+
+            <div class="navbar-inner">
+
+                <div class="title">Оформить рассрочку</div>
+
+                <div class="title-large">
+
+                    <div class="title-large-text">Оформить рассрочку</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="list inset elevation-20">
+
+                <ul>
+
+                    <li class="item-content item-input item-input-outline">
+
+                        <div class="item-inner">
+
+                            <div class="item-title item-label item-floating-label">Ссылка на товар или название</div>
+
+                            <div class="item-input-wrap">
+
+                                <input type="text" class="good" placeholder="Ссылка на товар или название">
+
+                                <span class="input-clear-button"></span>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="item-content margin-bottom item-input item-input-outline">
+
+                        <div class="item-inner">
+
+                            <div class="item-title item-label item-floating-label">Номер телефона</div>
+
+                            <div class="item-input-wrap">
+
+                                <input type="tel" class="phone" placeholder="+7(999)999-99-99">
+
+                                <span class="input-clear-button"></span>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <a class="tarif-select smart-select smart-select-init" data-open-in="sheet">
+
+                            <select name="plan">
+
+                                <option value="Не выбран" selected>Не выбран</option>
+                                <option value="Стандарт">Стандарт (2 поручителя)</option>
+                                <option value="Эконом">Эконом (2 поручителя)</option>
+                                <option value="Упрощенный">Упрощенный (1 поручитель)</option>
+                                <option value="Мини">Мини (3 поручителя + оформление в офисе)</option>
+                                <option value="Экспресс">Экспресс (Без поручителей + оформление в офисе)</option>
+
+                            </select>
+
+                            <div class="item-content">
+
+                                <div class="item-inner padding-horizontal margin-right">
+
+                                    <div class="item-title text-color-gray">Тариф:</div>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                        <a href="http://lariba.ru/" target="_system" class="display-block external text-align-right tarif-more text-color-gray padding-horizontal">Подробнее о тарифах</a>
+
+                    </li>
+
+                    <li class="item-content">
+
+                        <div class="width-100 margin-right">
+
+                            <div class="block-title margin-top no-margin-bottom">Прикрепите фотографии:</div>
+
+                            <div class="media row width-100">
+
+                                <!--<div @click="addMedia()" class="col-33 add-media margin-vertical border-color-red">
+
+                                    <i class="icon f7-icons text-color-red">plus</i>
+
+                                </div>-->
+
+                                <div @click="addMedia('passport')" data-type="passport" class="col-33 add-media margin-vertical border-color-red">
+
+                                    <span class="text-color-gray">Паспорт</span>
+
+                                </div>
+
+                                <div @click="addMedia('face')" data-type="face" class="col-33 add-media margin-vertical border-color-red">
+
+                                    <span class="text-color-gray">Лицо</span>
+
+                                </div>
+
+                                <div class="col-33 blank"></div>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="block">
+
+                <div class="text-color-gray konf-text margin">Нажимая на кнопку, вы даете согласие на обработку своих персональных данных.</div>
+
+                <button @click="checkFields" class="button button-fill button-send button-large button-round button-raised elevation-20 elevation-pressed-10">
+
+                    <div class="preloader color-white display-none"></div>
+
+                    <div class="text">
+
+                        <i class="icon f7-icons">checkmark_alt</i>
+
+                        <span>Подать заявку</span>
+
+                    </div>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} .list {
+        --f7-input-outline-border-color: #BDBDBD;
+    }
+
+    {{this}} .konf-text {
+                 font-size: 11px;
+             }
+
+    {{this}} .add-media {
+                 border: 2px dashed;
+                 text-align: center;
+                 height: 100px;
+                 line-height: 100px;
+                 border-radius: 10px;
+                 position: relative;
+             }
+
+    {{this}} .add-media span {
+                 font-size: 12px;
+                 line-height: normal;
+             }
+
+    {{this}} .add-media .desc {
+                 position: absolute;
+                 bottom: -40px;
+                 line-height: normal;
+                 font-size: 12px;
+                 width: 100%;
+        height: 30px;
+                 text-align: left;
+                 left: 0px;
+             }
+    {{this}} .media-item {
+                 background-size: 100%;
+                 background-repeat: no-repeat;
+                 background-position: center;
+                 border: 2px solid;
+                 border-radius: 10px;
+             }
+
+    {{this}} .small {
+                 font-size: 11px;
+             }
+
+    {{this}} .tarif-select .item-inner {
+                 border: 1px solid #d1d1d1;
+                 border-radius: 3px;
+                 padding: 0 calc(var(--f7-list-item-padding-horizontal) + var(--f7-safe-area-right) - 3px);
+             }
+
+    {{this}} .tarif-select .item-inner::after {
+                 display: none;
+             }
+
+    {{this}} .tarif-select .item-after {
+                 font-weight: bold;
+             }
+    
+    {{this}} .tarif-more {
+                 font-size: 10px;
+                 text-decoration: underline;
+                 text-transform: lowercase;
+                 margin-top: 5px;
+             }
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+                images: []
+            }
+
+        },
+        methods: {
+            checkFields: function () {
+
+                let component = this;
+                let page = component.$el;
+
+                let good = page.find('.good');
+                let phone = page.find('.phone');
+                let tarif = page.find('select');
+                let media = page.find('.media-item');
+
+                if (good.val().length == 0) {
+
+                    app.dialog.alert('Заполните поле "Товар"', 'Внимание');
+
+                    return;
+
+                }
+
+                if (phone.val().length == 0) {
+
+                    app.dialog.alert('Заполните поле "Телефон"', 'Внимание');
+
+                    return;
+
+                }
+
+                if (media.length <= 1) {
+
+                    app.dialog.alert('Загрузите фотографии!', 'Внимание');
+
+                    return;
+
+                }
+
+                page.find('.button-send').addClass('disabled');
+
+                page.find('.button-send').find('.preloader').removeClass('display-none');
+
+                page.find('.button-send').find('.text').addClass('display-none');
+
+                app.request({
+                    url: 'http://umakhan.tmweb.ru/lariba.php',
+                    method: 'POST',
+                    contentType: false,
+                    processData: false,
+                    data: {
+                        good: good.val(),
+                        phone: phone.val(),
+                        tarif: tarif.val(),
+                        images: component.images
+                    },
+                    success: function () {
+
+                        app.dialog.alert('Ваша заявка принята ожидайте звонка, наш менеджер скоро свяжется с вами.', function () {
+
+                            app.views.current.router.refreshPage();
+
+                        });
+
+                    },
+                    error: function () {
+
+                        app.dialog.alert('Произошла ошибка пожалуйста попробуйте позже.', function () {
+
+                            app.views.current.router.refreshPage();
+
+                        });
+
+                    }
+                });
+
+            },
+            getPicture: function (source) {
+
+                let component = this;
+                let page = component.$el;
+
+                app.preloader.show();
+
+                setTimeout(function () {
+
+                    navigator.camera.getPicture(function (base64) {
+
+                        let height = page.find('.media').find('.blank').width() + 'px';
+                        let image = app.methods.base64ToUrl(base64);
+
+                        component.images.push(base64);
+
+                        let html = '<div data-type="' + component.type + '" class="col-33 media-item margin-vertical border-color-primary" data-image="'+ image + '" style="height: ' + height + ';background-image:url(' + image + ')"></div>';
+
+                        page.find('.add-media[data-type="' + component.type + '"]').addClass('display-none');
+
+                        page.find('.media').prepend(html);
+
+                        app.preloader.hide();
+
+                    }, function () {
+
+                        app.preloader.hide();
+
+                        app.dialog.open('Ошибка доступа');
+
+                        //component.getPicture();
+
+                    }, {
+
+                        destinationType: Camera.DestinationType.DATA_URL,
+                        quality: 10,
+                        allowEdit: false,
+                        correctOrientation: false,
+                        sourceType: source === 'camera' ? Camera.PictureSourceType.CAMERA : Camera.PictureSourceType.PHOTOLIBRARY,
+
+                    });
+
+                });
+
+                setTimeout(function () {
+
+                    app.preloader.hide();
+
+                }, 2000);
+
+            },
+            addMedia: function (type) {
+
+                let component = this;
+                let page = component.$el;
+
+                component.type = type;
+
+                if (page.find('.media-item').length < 2) {
+
+                    component.actions.open();
+
+                } else {
+
+                    app.dialog.alert('Вы не можете загрузить больших 2 фотографий!', 'Внимание');
+
+                }
+
+            }
+        },
+        on: {
+
+            pageInit: function() {
+
+                let component = this;
+                let page = component.$el;
+
+                var phoneMask = new IMask(page.find('input.phone')[0], {
+                    mask: '+{7}(000)000-00-00'
+                });
+
+                let addMediaButton = page.find('.add-media');
+
+                addMediaButton.css({
+                    height: addMediaButton.width() + 'px',
+                    lineHeight: +addMediaButton.width() - 5 + 'px'
+                });
+
+                component.actions = app.actions.create({
+                    buttons: [
+                        {
+                            text: 'Фото',
+                            icon: '<i class="f7-icons text-color-primary">camera</i>',
+                            onClick: function() {
+
+                                component.getPicture('camera');
+
+                            }
+                        },
+                        {
+                            text: 'Выбрать с галереи',
+                            icon: '<i class="f7-icons text-color-primary">photo_on_rectangle</i>',
+                            onClick: function() {
+
+                                component.getPicture('PHOTOLIBRARY');
+
+                            }
+                        }
+                    ]
+                });
+
+                $$(window).on('click', '.page[data-name="main"] .media-item', function () {
+
+                    let $this = $$(this);
+
+                    component.type = $this.data('');
+
+                    let photoBrowser = app.photoBrowser.create({
+                        photos: [$this.data('image')],
+                        toolbar: false,
+                        routableModals: false
+                    });
+
+                    let actions = app.actions.create({
+                        buttons: [
+                            {
+                                text: 'Открыть в полном размере',
+                                icon: '<i class="f7-icons">zoom_in</i>',
+                                onClick: function() {
+
+                                    $$('.actions-modal').off('actions:closed').on('actions:closed', function() {
+
+                                        setTimeout(function () {
+
+                                            photoBrowser.open();
+
+                                        }, 100);
+
+                                    });
+
+                                }
+                            },
+                            {
+                                text: 'Удалить',
+                                icon: '<i class="f7-icons text-color-red">trash</i>',
+                                color: 'red',
+                                onClick: function() {
+
+                                    $this.remove();
+
+                                    page.find('.add-media[data-type="' + $this.data('type') + '"]').removeClass('display-none');
+
+                                }
+                            }
+                        ]
+                    });
+
+                    actions.open();
+
+                });
+
+            }
+
+        }
+
+    }
+
+</script>

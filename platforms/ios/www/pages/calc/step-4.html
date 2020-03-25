@@ -1,0 +1,326 @@
+<template>
+
+    <div class="page bg-color-white">
+
+        <div class="navbar bg-color-white">
+
+            <div class="navbar-inner">
+
+                <div class="left">
+
+                    <a href="#" class="link back">
+
+                        <i class="icon icon-back"></i>
+                        <span>Назад</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="block-title margin-top">Тариф:</div>
+
+            <div class="block tarif margin-bottom">
+
+                <div class="row">
+
+                    <button class="col-100 button button-outline button-raised button-large button-active margin-bottom">Экспресс</button>
+
+                    <button class="col-50 button button-outline button-raised button-large margin-bottom">Эконом</button>
+
+                    <button class="col-50 button button-outline button-raised button-large margin-bottom">Упрощенный</button>
+
+                </div>
+
+                <div class="row">
+
+                    <button class="col-50 button button-outline button-raised button-large margin-bottom">Мини</button>
+
+                    <button class="col-50 button button-outline button-raised button-large margin-bottom">Стандарт</button>
+
+                </div>
+
+            </div>
+
+            <div class="list">
+
+                <ul>
+
+                    <li class="item-content">
+
+                        <div class="item-inner">
+
+                            <div class="item-title">Стоимость товара:</div>
+
+                            <div class="item-after">{{js "this.sum.toLocaleString('ru-RU')"}} ₽</div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="item-content">
+
+                        <div class="item-inner">
+
+                            <div class="item-title">Первоначальный взнос:</div>
+
+                            <div class="item-after">{{js "this.firstPay.toLocaleString('ru-RU')"}} ₽</div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="item-content">
+
+                        <div class="item-inner">
+
+                            <div class="item-title">Срок договора:</div>
+
+                            <div class="item-after">{{srok}} мес.</div>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="block-title block-title-medium">Итоговый расчет:</div>
+
+            <div class="list">
+
+                <ul>
+
+                    <li class="item-content">
+
+                        <div class="item-inner">
+
+                            <div class="item-title">Ежемесячный платеж:</div>
+
+                            <div class="item-after">{{monthPay}}</div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="item-content">
+
+                        <div class="item-inner">
+
+                            <div class="item-title">Переплата по договору:</div>
+
+                            <div class="item-after">{{pereplata}}</div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="item-content">
+
+                        <div class="item-inner">
+
+                            <div class="item-title">Общая стоимость:</div>
+
+                            <div class="item-after">{{totalSum}}</div>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} .title {
+        font-size: 36px;
+        font-weight: 100;
+        margin-top: 150px;
+    }
+
+    {{this}} .input {
+                 position: relative;
+                 border-radius: 10px;
+                 height: 70px;
+                 line-height: 70px;
+                 background: #eee;
+             }
+
+    {{this}} .input input {
+                 font-size: 40px;
+                 font-weight: 100;
+                 height: 100%
+             }
+
+    {{this}} .input span {
+                 position: absolute;
+                 right: 0px;
+                 top: 0px;
+                 font-size: 40px;
+                 font-weight: 100;
+                 background: #eee;
+                 width: 40px;
+                 text-align: center;
+                 border-radius: 10px;
+             }
+
+
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+                rates: [
+                    {
+                        "name" : "Экспресс",
+                        "percents": [4.99999, 9.99998, 14.99997, 19.99996, 24.99995, 29.99994, 34.99993, 39.99992, 44.99991, 49.99990, 54.99989, 59.99988],
+                        "maxGoodsCost": 130000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Экспресс\" без поручителя",
+                        "guarantorCount": 0,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": false,
+                        "defaultContractMonthCount": 6
+                    },
+                    {
+                        "name" : "Мини",
+                        "percents": [1.8667, 3.7334, 5.6001, 7.4668, 9.3335, 11.2002, 13.0669, 14.9336, 16.8003, 18.667, 20.5337, 22.4004],
+                        "maxGoodsCost": 100000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Мини\" с тремя поручителями. Можно оформить только в головном офисе по ул. Абубакарова 12.",
+                        "guarantorCount": 3,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": true,
+                        "defaultContractMonthCount": 6
+                    },
+                    {
+                        "name" : "Упрощенный",
+                        "percents": [4.14290, 8.28580, 12.42870, 16.57160, 20.71450, 24.85740, 29.00030, 33.14320, 37.28610, 41.42900, 45.57190, 49.71480],
+                        "maxGoodsCost": 180000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Упрощенный\" с одним поручителем",
+                        "guarantorCount": 1,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": false,
+                        "defaultContractMonthCount": 6
+                    },
+                    {
+                        "name" : "Эконом",
+                        "percents": [3.28570, 6.57140, 9.85710, 13.14280, 16.42850, 19.71420, 22.99990, 26.28560, 29.57130, 32.85700, 36.14270, 39.42840],
+                        "maxGoodsCost": 500000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Эконом\" с двумя поручителями",
+                        "guarantorCount": 2,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": false,
+                        "defaultContractMonthCount": 6
+                    },
+                    {
+                        "name" : "Стандарт",
+                        "percents": [2.2, 4.5, 7, 9.5, 11.5, 14, 16.5, 19, 21.5, 24, 26.5, 29],
+                        "maxGoodsCost": 500000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Стандарт\" с двумя поручителями. Можно оформить только в головном офисе по ул. Абубакарова 12.",
+                        "guarantorCount": 2,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": true,
+                        "defaultContractMonthCount": 6
+                    }
+                ]
+            }
+
+        },
+        methods: {
+
+            calc: function () {
+
+                let component = this;
+                let page = component.$el;
+
+                let monthly_payment = 0; // ежемесячный платеж
+                let total_payment = 0; // полная сумма
+                let overpayment = 0; //переплата клиента
+
+                let rate = page.find('.tarif').find('.button-active').text(); // тарифный план
+                let product_price = component.sum; //цена товара
+                let term = component.srok; //срок
+                let first_payment = component.firstPay; //первоначальный взнос
+                let percent = 0;   //процент переплаты
+
+                if (localStorage.rates !== undefined) {
+
+                    component.rates = JSON.parse(localStorage.rates);
+
+                }
+
+                let tarif = component.rates.find(function (item) {
+
+                    return item.name == rate;
+
+                });
+
+                percent = tarif.percents[term - 1];
+
+                overpayment = Math.ceil( (product_price - first_payment) / 100 * percent); // калькуляция
+                total_payment = Math.ceil(product_price + overpayment);
+                monthly_payment = Math.ceil((product_price - first_payment + overpayment) / term);
+
+                component.pereplata = overpayment.toLocaleString('ru-RU') +  ' ₽';
+
+                component.totalSum = total_payment.toLocaleString('ru-RU') +  ' ₽';
+
+                component.monthPay = monthly_payment.toLocaleString('ru-RU') +  ' ₽';
+
+                component.$update();
+
+            }
+
+        },
+        on: {
+
+            pageInit: function() {
+
+                let component = this;
+                let page = component.$el;
+
+                component.calc();
+
+                page.find('.tarif').find('.button').on('click', function () {
+
+                    page.find('.tarif').find('.button').removeClass('button-active');
+
+                    $$(this).addClass('button-active');
+
+                    component.calc();
+
+                });
+
+            }
+
+        }
+
+    }
+
+</script>

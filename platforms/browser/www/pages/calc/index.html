@@ -1,0 +1,489 @@
+<template>
+
+    <div class="page bg-color-white">
+
+        <div class="navbar bg-color-white">
+
+            <div class="navbar-inner no-padding-horizontal padding-top">
+
+                <div class="padding-horizontal block-result text-align-center">
+
+                    <div class="total-payment-block padding">
+
+                        <div class="total-payment sum">0 ₽</div>
+
+                        <div class="desc total-payment-desc text-color-gray">Общая стоимость товара в рассрочку</div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-50 padding monthly-payment-block">
+
+                            <div class="monthly-payment sum">0 ₽</div>
+
+                            <div class="desc monthly-payment-desc text-color-gray">Ежемесячный платеж</div>
+
+                        </div>
+
+                        <div class="col-50 padding overpayment-block">
+
+                            <div class="overpayment sum">0 ₽</div>
+
+                            <div class="desc overpayment-desc text-color-gray">Переплата по договору</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="block-title margin-top">Тариф:</div>
+
+            <div class="block tarif margin-bottom">
+
+                <div class="row">
+
+                    <button class="col-100 button button-outline button-raised button-large button-active margin-bottom">Экспресс</button>
+
+                    <button class="col-50 button button-outline button-raised button-large margin-bottom">Эконом</button>
+
+                    <button class="col-50 button button-outline button-raised button-large margin-bottom">Упрощенный</button>
+
+                </div>
+
+                <div class="row">
+
+                    <button class="col-50 button button-outline button-raised button-large margin-bottom">Мини</button>
+
+                    <button class="col-50 button button-outline button-raised button-large margin-bottom">Стандарт</button>
+
+                </div>
+
+            </div>
+
+            <div class="block item item-product-price">
+
+                <div class="row margin-bottom">
+
+                    <div class="item-title-block">
+
+                        <div class="item-title">Стоимость товара</div>
+
+                        <div class="item-desc text-color-gray">до <span class="max-cost">100 000</span> ₽</div>
+
+                    </div>
+
+                    <div class="item-input-block">
+
+                        <div class="item-input">
+
+                            <input type="number" class="product-price" value="0">
+
+                            <span>₽</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="range-slider range-slider-product-price"></div>
+
+            </div>
+
+            <div class="block item item-term">
+
+                <div class="row margin-bottom">
+
+                    <div class="item-title-block">
+
+                        <div class="item-title">Срок договора</div>
+
+                        <div class="item-desc text-color-gray">до 12 месяцев</div>
+
+                    </div>
+
+                    <div class="item-input-block">
+
+                        <div class="item-input">
+
+                            <input type="number" class="term" value="6">
+
+                            <span>мес.</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="range-slider range-slider-term"></div>
+
+            </div>
+
+            <div class="block item item-first-payment">
+
+                <div class="row margin-bottom">
+
+                    <div class="item-title-block">
+
+                        <div class="item-title">Первоначальный взнос</div>
+
+                        <div class="item-desc text-color-gray">от 25% стоимости товара</div>
+
+                    </div>
+
+                    <div class="item-input-block">
+
+                        <div class="item-input">
+
+                            <input type="number" class="first_payment" value="0">
+
+                            <span>₽</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="range-slider range-slider-first-payment"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} .block-result {
+        border-bottom: 1px solid #eee;
+    }
+
+    {{this}} .overpayment-block, {{this}} .monthly-payment-block {
+
+    }
+
+    {{this}} .overpayment-block .sum, {{this}} .monthly-payment-block .sum {
+                                              font-size: 23px;
+                                          }
+
+    {{this}} .overpayment-block .desc, {{this}} .monthly-payment-block .desc {
+                                              font-size: 11px;
+                                                    font-weight: bold;
+                                          }
+
+    {{this}} .total-payment-block {
+        border-bottom: 1px solid #eee;
+    }
+
+    {{this}} .total-payment {
+        font-size: 33px;
+    }
+
+    {{this}} .tarif {
+        padding-bottom: calc(var(--f7-block-padding-vertical) - 10px);
+    }
+    {{this}} .tarif .button {
+
+             }
+
+    {{this}} .item {
+
+             }
+
+    {{this}} .item .item-title-block {}
+
+    {{this}} .item .item-title-block .item-title {
+                 font-size: 18px;
+        font-weight: bold
+             }
+
+    {{this}} .item .item-title-block .item-desc {
+
+             }
+
+    {{this}} .item .item-input-block {
+
+             }
+
+    {{this}} .item .item-input-block .item-input {
+                 border: 2px solid var(--f7-theme-color);
+                 border-radius: 5px;
+                 position: relative;
+                 height: 40px;
+             }
+
+    {{this}} .item .item-input-block .item-input span {
+                 position: absolute;
+                 right: 10px;
+                 top: 8px;
+                 font-size: 18px;
+             }
+
+    {{this}} .item .item-input-block .item-input input {
+                 height: 100%;
+                 font-size: 18px;
+                 text-align: right;
+                 padding-left: 10px;
+                 width: 100px;
+             }
+
+    {{this}} .item-term .item-input-block .item-input input {
+                 width: 90px;
+             }
+
+    {{this}} .item-product-price .item-input-block .item-input input, {{this}} .item-first-payment .item-input-block .item-input input {
+                 padding-right: 25px;
+             }
+
+    {{this}} .item-term .item-input-block .item-input input {
+                 padding-right: 50px;
+             }
+
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+                rates: [
+                    {
+                        "name" : "Экспресс",
+                        "percents": [4.99999, 9.99998, 14.99997, 19.99996, 24.99995, 29.99994, 34.99993, 39.99992, 44.99991, 49.99990, 54.99989, 59.99988],
+                        "maxGoodsCost": 130000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Экспресс\" без поручителя",
+                        "guarantorCount": 0,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": false,
+                        "defaultContractMonthCount": 6
+                    },
+                    {
+                        "name" : "Мини",
+                        "percents": [1.8667, 3.7334, 5.6001, 7.4668, 9.3335, 11.2002, 13.0669, 14.9336, 16.8003, 18.667, 20.5337, 22.4004],
+                        "maxGoodsCost": 100000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Мини\" с тремя поручителями. Можно оформить только в головном офисе по ул. Абубакарова 12.",
+                        "guarantorCount": 3,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": true,
+                        "defaultContractMonthCount": 6
+                    },
+                    {
+                        "name" : "Упрощенный",
+                        "percents": [4.14290, 8.28580, 12.42870, 16.57160, 20.71450, 24.85740, 29.00030, 33.14320, 37.28610, 41.42900, 45.57190, 49.71480],
+                        "maxGoodsCost": 180000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Упрощенный\" с одним поручителем",
+                        "guarantorCount": 1,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": false,
+                        "defaultContractMonthCount": 6
+                    },
+                    {
+                        "name" : "Эконом",
+                        "percents": [3.28570, 6.57140, 9.85710, 13.14280, 16.42850, 19.71420, 22.99990, 26.28560, 29.57130, 32.85700, 36.14270, 39.42840],
+                        "maxGoodsCost": 500000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Эконом\" с двумя поручителями",
+                        "guarantorCount": 2,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": false,
+                        "defaultContractMonthCount": 6
+                    },
+                    {
+                        "name" : "Стандарт",
+                        "percents": [2.2, 4.5, 7, 9.5, 11.5, 14, 16.5, 19, 21.5, 24, 26.5, 29],
+                        "maxGoodsCost": 500000,
+                        "minInitialPayPercent": 25,
+                        "description": "Тариф \"Стандарт\" с двумя поручителями. Можно оформить только в головном офисе по ул. Абубакарова 12.",
+                        "guarantorCount": 2,
+                        "showInFullCalculator": true,
+                        "showInCompactCalculator": true,
+                        "onlyMainOffice": true,
+                        "defaultContractMonthCount": 6
+                    }
+                ]
+            }
+
+        },
+        methods: {
+            calc: function () {
+
+                let component = this;
+                let page = component.$el;
+
+                let monthly_payment = 0; // ежемесячный платеж
+                let total_payment = 0; // полная сумма
+                let overpayment = 0; //переплата клиента
+
+                let percent_first_payment = 0.25; //процент первоначального взноса
+                let rate = page.find('.tarif').find('.button-active').text(); // тарифный план
+                let product_price = Number(page.find('.product-price').val()); //цена товара
+                let term = Number(page.find('.term').val()); //срок
+                let first_payment = Number(page.find('.first_payment').val()); //первоначальный взнос
+                let percent = 0;   //процент переплаты
+
+                let tarif = component.rates.find(function (item) {
+
+                    return item.name == rate;
+
+                });
+
+                if (first_payment + 1 < ( product_price * percent_first_payment)){
+
+                    let minFirstPayment = product_price * percent_first_payment;
+
+                    page.find('.first_payment').val(minFirstPayment.toFixed(0));
+
+                }
+
+                if (product_price < first_payment) {
+
+                    page.find('.first_payment').val(product_price.toFixed(0));
+
+                }
+
+                if (Number.isNaN(product_price) || Number.isNaN(term) || Number.isNaN(first_payment)) {
+
+                    return;
+
+                }
+
+                percent = tarif.percents[term - 1];
+
+                percent = Number('0.' + percent.toString().replace('.', ''));
+
+                overpayment = Math.ceil( (product_price - first_payment) * percent); // калькуляция
+                total_payment = Math.ceil(product_price + overpayment);
+                monthly_payment = Math.ceil((product_price - first_payment + overpayment) / term);
+
+                page.find('.overpayment').html(overpayment.toLocaleString('ru-RU') +  ' ₽');
+
+                page.find('.total-payment').html(total_payment.toLocaleString('ru-RU') +  ' ₽');
+
+                page.find('.monthly-payment').html(monthly_payment.toLocaleString('ru-RU') +  ' ₽');
+
+            }
+        },
+        on: {
+
+            pageInit: function() {
+
+                let component = this;
+                let page = component.$el;
+
+                $$('#view-calc').once('tab:show', function () {
+
+                    let height = page.find('.navbar').find('.block-result').height() + 17;
+
+                    page.attr('style', '--f7-navbar-height:' + height + 'px');
+
+                    let rangeSliderProductPrice = app.range.create({
+                        el: page.find('.range-slider-product-price'),
+                        min: 0,
+                        max: 100000,
+                        on: {
+                            change: function (range, value) {
+
+                                page.find('.product-price').val(value).trigger('input');
+
+                            }
+                        }
+                    });
+
+                    let rangeSliderTerm = app.range.create({
+                        el: page.find('.range-slider-term'),
+                        min: 1,
+                        max: 12,
+                        on: {
+                            change: function (range, value) {
+
+                                page.find('.term').val(value).trigger('input');
+
+                            }
+                        }
+                    });
+
+                    let rangeSliderFirstPayment = app.range.create({
+                        el: page.find('.range-slider-first-payment'),
+                        min: 0,
+                        max: 100000,
+                        on: {
+                            change: function (range, value) {
+
+                                page.find('.first_payment').val(value).trigger('input');
+
+                            }
+                        }
+                    });
+
+                    page.find('.tarif').find('.button').on('click', function () {
+
+                        page.find('.tarif').find('.button').removeClass('button-active');
+
+                        $$(this).addClass('button-active');
+
+                        let rate = $$(this).text();
+
+                        let tarif = component.rates.find(function (item) {
+
+                            return item.name == rate;
+
+                        });
+
+                        rangeSliderProductPrice.max = tarif.maxGoodsCost;
+
+                        rangeSliderFirstPayment.max = tarif.maxGoodsCost;
+
+                        page.find('.max-cost').html(tarif.maxGoodsCost.toLocaleString('ru-RU'));
+
+                        component.calc();
+
+                    });
+
+                    page.find('.product-price,.term,.first_payment').on('input', function () {
+
+                        component.calc();
+
+                        let productPrice = page.find('.product-price').val();
+                        let term = page.find('.term').val();
+                        let firstPayment = page.find('.first_payment').val();
+
+                        rangeSliderProductPrice.setValue(productPrice);
+                        rangeSliderTerm.setValue(term);
+                        rangeSliderFirstPayment.setValue(firstPayment);
+
+                    });
+
+                    page.find('.product-price').val(70000).trigger('input');
+
+                    page.find('.term').val(6).trigger('input');
+
+                });
+
+            }
+
+        }
+
+    }
+
+</script>

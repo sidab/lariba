@@ -1,0 +1,19 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "LaRiba",
+  "short_name": "LaRiba",
+  "version": "com.lariba.ru",
+  "description": "Приложение для клиентов компании LaRiba.",
+  "author": "Umakhan Magomedov",
+  "icons": [
+    {
+      "src": "www/icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
+  "orientation": "portrait",
+  "start_url": "index.html",
+  "theme_color": "#0056f6"
+}
