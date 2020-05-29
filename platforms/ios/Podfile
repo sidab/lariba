@@ -4,5 +4,5 @@ platform :ios, '10.0'
 
 target 'LaRiba' do
 	project 'LaRiba.xcodeproj'
-	pod 'OneSignal', '2.12.5'
+
 end

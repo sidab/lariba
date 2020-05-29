@@ -22,7 +22,7 @@
 
         <div class="page-content">
 
-            <div class="list inset elevation-10">
+            <div class="list inset elevation-10 margin-top">
 
                 <ul>
 
@@ -69,11 +69,11 @@
                             <select name="plan">
 
                                 <option value="Не выбран" selected>Не выбран</option>
-                                <option value="Стандарт">Стандарт (2 поручителя)</option>
+                                <!--<option value="Стандарт">Стандарт (2 поручителя)</option>-->
                                 <option value="Эконом">Эконом (2 поручителя)</option>
                                 <option value="Упрощенный">Упрощенный (1 поручитель)</option>
-                                <option value="Мини">Мини (3 поручителя + оформление в офисе)</option>
-                                <option value="Экспресс">Экспресс (Без поручителей + оформление в офисе)</option>
+                                <!--<option value="Мини">Мини (3 поручителя + оформление в офисе)</option>-->
+                                <option value="Экспресс">Экспресс (Без поручителей)</option>
 
                             </select>
 
@@ -226,6 +226,18 @@
                  text-decoration: underline;
                  text-transform: lowercase;
                  margin-top: 5px;
+             }
+
+    {{this}} .partners {
+
+             }
+
+    {{this}} .partners .partner{
+                 width: 60px;
+                 height: 43px;
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 border-radius: 5px;
              }
 </style>
 

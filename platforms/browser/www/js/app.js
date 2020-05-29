@@ -4,7 +4,7 @@ var app = new Framework7({
     root: '#app',
     name: 'LaRiba',
     theme: 'auto',
-    version: 1.2,
+    version: 2.0,
     routes: routes,
     init: false,
     dialog: {
@@ -365,6 +365,9 @@ $$(document).on('deviceready', function () {
 
     }
 
+    //$$('.toolbar-menu').find('.tab-link[href="#view-main"]').addClass('display-none');
+
+    //$$('.toolbar-menu').find('.tab-link[href="#view-plans"]').click();
 
     $$('.toolbar-menu').find('.tab-link').each(function (i) {
 
@@ -386,7 +389,7 @@ $$(document).on('deviceready', function () {
 
     setTimeout(function () {
 
-        $$('.toolbar-menu').find('.tab-link:first-child').click();
+        //$$('.toolbar-menu').find('.tab-link:first-child').click();
 
     }, 1000);
 
