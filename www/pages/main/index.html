@@ -410,7 +410,9 @@
                 let component = this;
                 let page = component.$el;
 
-                var phoneMask = new IMask(page.find('input.phone')[0], {
+                app.emit('mainPage:loaded');
+
+                let phoneMask = new IMask(page.find('input.phone')[0], {
                     mask: '+{7}(000)000-00-00'
                 });
 

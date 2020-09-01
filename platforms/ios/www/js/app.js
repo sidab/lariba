@@ -392,19 +392,6 @@ $$(document).on('deviceready', function () {
 
     } catch (error) {}
 
-    setTimeout(function () {
-
-        if (app.device.ios) {
-
-            app.statusbar.hide();
-            app.statusbar.show();
-
-        }
-
-        navigator.splashscreen.hide();
-
-    }, 1500);
-
     app.init();
 
     app.request.setup({
@@ -437,24 +424,41 @@ $$(document).on('deviceready', function () {
             main: true
         });
 
-        app.views.create('#view-plans', {
-            url: '/plans',
-            //animate: app.device.ios ? true : false
-        });
+        app.on('mainPage:loaded', function () {
 
-        app.views.create('#view-calc', {
-            url: '/calc',
-            //animate: app.device.ios ? true : false
-        });
+            if (app.device.ios) {
 
-        app.views.create('#view-help', {
-            url: '/help',
-            //animate: app.device.ios ? true : false
-        });
+                app.statusbar.hide();
+                app.statusbar.show();
 
-        app.views.create('#view-contacts', {
-            url: '/contacts',
-            //animate: app.device.ios ? true : false
+            }
+
+            setTimeout(function () {
+
+                navigator.splashscreen.hide();
+
+            }, 500);
+
+            app.views.create('#view-plans', {
+                url: '/plans',
+                //animate: app.device.ios ? true : false
+            });
+
+            app.views.create('#view-calc', {
+                url: '/calc',
+                //animate: app.device.ios ? true : false
+            });
+
+            app.views.create('#view-help', {
+                url: '/help',
+                //animate: app.device.ios ? true : false
+            });
+
+            app.views.create('#view-contacts', {
+                url: '/contacts',
+                //animate: app.device.ios ? true : false
+            });
+
         });
 
     });
