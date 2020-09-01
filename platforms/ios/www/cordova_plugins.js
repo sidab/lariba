@@ -33,6 +33,15 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open",
+        "window.open"
+      ]
+    },
+    {
       "id": "cordova-plugin-ionic-keyboard.keyboard",
       "file": "plugins/cordova-plugin-ionic-keyboard/www/ios/keyboard.js",
       "pluginId": "cordova-plugin-ionic-keyboard",
@@ -109,20 +118,12 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.plugins.socialsharing"
       ]
-    },
-    {
-      "id": "cordova-plugin-inappbrowser.inappbrowser",
-      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-      "pluginId": "cordova-plugin-inappbrowser",
-      "clobbers": [
-        "cordova.InAppBrowser.open",
-        "window.open"
-      ]
     }
   ];
   module.exports.metadata = {
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-crosswalk-webview-arm": "3.1.0",
+    "cordova-plugin-inappbrowser": "3.1.0",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordova-plugin-ios-camera-permissions": "1.2.0",
     "cordova-plugin-splashscreen": "5.0.3",
@@ -131,7 +132,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-wkwebview-engine": "1.2.1",
     "cordova-plugin-wkwebview-file-xhr": "2.1.4",
     "es6-promise-plugin": "4.2.2",
-    "cordova-plugin-x-socialsharing": "5.4.0",
-    "cordova-plugin-inappbrowser": "3.1.0"
+    "cordova-plugin-x-socialsharing": "5.4.0"
   };
 });
