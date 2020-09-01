@@ -13,19 +13,20 @@
       "cordova-plugin-crosswalk-webview-arm": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-camera": {
-        "CAMERA_USAGE_DESCRIPTION": "We are using a camera to photo goods with defect.",
-        "PHOTOLIBRARY_USAGE_DESCRIPTION": "We are using a camera to photo goods with defect."
+        "CAMERA_USAGE_DESCRIPTION": "Нам необходим доступ к вашей камере для фотографий паспорта и лица",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "Нам необходим доступ к вашей камере для фотографий паспорта и лица"
       },
       "cordova-plugin-ios-camera-permissions": {
-        "CAMERA_USAGE_DESCRIPTION": "We are using a camera to photo goods with defect.",
-        "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "We are using a camera to photo goods with defect.",
-        "PHOTOLIBRARY_USAGE_DESCRIPTION": "We are using a camera to photo goods with defect."
+        "CAMERA_USAGE_DESCRIPTION": "Нам необходим доступ к вашей камере для фотографий паспорта и лица",
+        "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "Нам необходим доступ к вашей камере для фотографий паспорта и лица",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "Нам необходим доступ к вашей камере для фотографий паспорта и лица"
       },
       "cordova-plugin-statusbar": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-x-socialsharing": {},
       "cordova-plugin-wkwebview-engine": {},
-      "cordova-plugin-wkwebview-file-xhr": {}
+      "cordova-plugin-wkwebview-file-xhr": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "browser",
@@ -36,6 +37,7 @@
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-crosswalk-webview-arm": "^3.1.0",
+    "cordova-plugin-inappbrowser": "3.1.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-wkwebview-engine": "1.2.1",
     "cordova-plugin-wkwebview-file-xhr": "2.1.4",

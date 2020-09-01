@@ -36,6 +36,9 @@
     },
     "cordova-plugin-wkwebview-file-xhr": {
       "PACKAGE_NAME": "com.laribafinance.ru"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.laribafinanceapp.ru"
     }
   },
   "dependent_plugins": {

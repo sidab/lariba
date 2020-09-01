@@ -1,10 +1,10 @@
 <template>
 
-    <div class="page" data-name="main">
+    <div class="page bg-color-white" data-name="main">
 
-        <div class="navbar navbar-large">
+        <div class="navbar navbar-large no-hairline">
 
-            <div class="navbar-bg"></div>
+            <div class="navbar-bg bg-color-white"></div>
 
             <div class="navbar-inner">
 
@@ -22,7 +22,7 @@
 
         <div class="page-content">
 
-            <div class="list inset elevation-10 margin-top">
+            <div class="list no-hairlines margin-vertical">
 
                 <ul>
 
@@ -97,7 +97,7 @@
 
                         <div class="width-100 margin-right">
 
-                            <div class="block-title margin-top no-margin-bottom">Прикрепите фотографии:</div>
+                            <div class="block-title margin-top no-margin-bottom no-margin-horizontal">Фотографии:</div>
 
                             <div class="media row width-100">
 
@@ -107,13 +107,13 @@
 
                                 </div>-->
 
-                                <div @click="addMedia('passport')" data-type="passport" class="col-33 add-media margin-vertical border-color-red">
+                                <div @click="addMedia('passport')" data-type="passport" class="col-33 add-media margin-vertical">
 
                                     <span class="text-color-gray">Паспорт</span>
 
                                 </div>
 
-                                <div @click="addMedia('face')" data-type="face" class="col-33 add-media margin-vertical border-color-red">
+                                <div @click="addMedia('face')" data-type="face" class="col-33 add-media margin-vertical">
 
                                     <span class="text-color-gray">Лицо</span>
 
@@ -131,23 +131,21 @@
 
             </div>
 
-            <div class="block">
+            <div class="margin">
 
-                <div class="text-color-gray konf-text margin">Нажимая на кнопку, вы даете согласие на обработку своих персональных данных.</div>
-
-                <button @click="checkFields" class="button button-fill button-send button-large button-round button-raised elevation-20 elevation-pressed-10">
+                <button @click="checkFields" class="button button-fill button-send button-large">
 
                     <div class="preloader color-white display-none"></div>
 
                     <div class="text">
-
-                        <i class="icon f7-icons">checkmark_alt</i>
 
                         <span>Подать заявку</span>
 
                     </div>
 
                 </button>
+
+                <div class="text-color-gray konf-text margin-top text-align-center">Нажимая на кнопку, вы даете согласие на обработку своих персональных данных.</div>
 
             </div>
 
@@ -168,16 +166,17 @@
     }
 
     {{this}} .konf-text {
-                 font-size: 11px;
+                 font-size: 10px;
              }
 
     {{this}} .add-media {
-                 border: 2px dashed;
+                 border: 2px dashed #9E9E9E;
                  text-align: center;
-                 height: 100px;
+                 height: 70px;
                  line-height: 100px;
-                 border-radius: 10px;
+                 border-radius: 4px;
                  position: relative;
+                 background: #F7F7F7;
              }
 
     {{this}} .add-media span {
@@ -200,7 +199,7 @@
                  background-repeat: no-repeat;
                  background-position: center;
                  border: 2px solid;
-                 border-radius: 10px;
+                 border-radius: 4px;
              }
 
     {{this}} .small {
@@ -209,7 +208,7 @@
 
     {{this}} .tarif-select .item-inner {
                  border: 1px solid #d1d1d1;
-                 border-radius: 3px;
+                 border-radius: 4px;
                  padding: 0 calc(var(--f7-list-item-padding-horizontal) + var(--f7-safe-area-right) - 3px);
              }
 
@@ -218,7 +217,7 @@
              }
 
     {{this}} .tarif-select .item-after {
-                 font-weight: bold;
+
              }
     
     {{this}} .tarif-more {
@@ -237,8 +236,21 @@
                  height: 43px;
                  background-repeat: no-repeat;
                  background-size: contain;
-                 border-radius: 5px;
+                 border-radius: 4px;
              }
+
+    {{this}} {
+        --f7-input-font-size: 14px;
+        --f7-label-font-size: 10px;
+        --f7-list-item-title-font-size: 14px;
+        --f7-input-outline-border-color: #F7F7F7;
+    --f7-input-outline-border-radius: 4px;
+    }
+
+    {{this}} .item-input-focused {
+                 --f7-label-font-size: 14px;
+             }
+
 </style>
 
 <script>
@@ -341,7 +353,7 @@
 
                         component.images.push(base64);
 
-                        let html = '<div data-type="' + component.type + '" class="col-33 media-item margin-vertical border-color-primary" data-image="'+ image + '" style="height: ' + height + ';background-image:url(' + image + ')"></div>';
+                        let html = '<div data-type="' + component.type + '" class="col-33 media-item margin-vertical" data-image="'+ image + '" style="height: ' + height + ';background-image:url(' + image + ')"></div>';
 
                         page.find('.add-media[data-type="' + component.type + '"]').addClass('display-none');
 

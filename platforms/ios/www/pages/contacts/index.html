@@ -1,16 +1,16 @@
 <template>
 
-    <div class="page">
+    <div class="page bg-color-white">
 
         <div class="page-content">
 
-            <div class="block margin-top no-margin-bottom block-strong">
+            <div class="margin no-margin-bottom display-none">
 
                 <img src="img/logo.png" class="width-100 logo-img">
 
             </div>
 
-            <div class="block-title block-title-large">Наши контакты</div>
+            <div class="block-title block-title-large">Контакты</div>
 
             <div class="list no-margin-bottom">
 
@@ -116,39 +116,21 @@
 
             </div>
 
-            <div class="block-title block-title-large">Социальные сети</div>
+            <div class="block-title block-title-medium">Социальные сети</div>
 
-            <div class="margin-horizontal social-block">
+            <div class="block padding-top row social-icons">
 
-                <a href="https://www.instagram.com/laribafinance/" target="_system" class="elevation-5 external margin-bottom button button-instagram text-color-white button-large">
+                <a href="https://wa.me/79882936466" target="_system" style="background-image: url('img/new-icons/logo-whatsapp.svg')" class="external col-25 social-icon"></a>
 
-                    <i class="icon f7-icons">logo_instagram</i>
+                <a href="https://www.instagram.com/laribafinance/" target="_system" style="background-image: url('img/new-icons/logo-instagram.svg')" class="external col-25 social-icon"></a>
 
-                    <span>Instagram</span>
+                <a href="https://www.youtube.com/channel/UC7b7JQBxvxru2tvw7SY8Q7A" target="_system" style="background-image: url('img/new-icons/logo-youtube.svg')" class="external col-25 social-icon"></a>
 
-                </a>
-
-                <a href="https://www.facebook.com/groups/LaribaFinance" target="_system" class="elevation-5 external margin-bottom button button-facebook text-color-white button-large">
-
-                    <i class="icon f7-icons">logo_facebook</i>
-
-                    <span>Facebook</span>
-
-                </a>
-                
-
-                <a href="https://wa.me/79882936466" target="_system" class="elevation-5 external button button-whatsapp text-color-white button-large">
-
-                    <i class="icon" style="background-image: url(img/icons/whatsapp.png)"></i>
-
-                    <span>WhatsApp</span>
-
-                </a>
-
+                <a href="https://www.facebook.com/groups/LaribaFinance" target="_system" style="background-image: url('img/new-icons/logo-facebook.svg')" class="external col-25 social-icon"></a>
 
             </div>
 
-            <div class="block-title block-title-large">Мы на карте</div>
+            <div class="block-title block-title-medium">Мы на карте</div>
 
             <div class="block-map">
 
@@ -201,7 +183,7 @@
 
 
     {{this}} .list ul {
-                 background: #FAFAFA;
+                 /*background: #FAFAFA;*/
              }
 
     {{this}} .list ul .item-title {
@@ -261,6 +243,20 @@
                  height: 30px;
                  background-size: cover;
              }
+
+    .social-icons {
+
+
+    }
+    .social-icons .social-icon {
+        height: 48px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        background-position: center;
+        background-color: #F7F7F7;
+        border-radius: 4px;
+    }
+
 
 </style>
 

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.lariba.ru" version="2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.laribafinanceapp.ru" version="2.5" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>LaRiba</name>
     <description>
         Приложение для клиентов компании LaRiba.
@@ -17,6 +17,7 @@
     <preference name="android-minSdkVersion" value="19" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#0056f6" />
+    <preference name="StatusBarStyle" value="blacktranslucent" />
     <icon src="www/icon.png" />
     <content src="index.html" />
     <platform name="ios">
@@ -69,16 +70,17 @@
     <plugin name="cordova-plugin-crosswalk-webview-arm" />
     <plugin name="cordova-plugin-splashscreen" spec="5.0.3" />
     <plugin name="cordova-plugin-camera" spec="4.1.0">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value="We are using a camera to photo goods with defect." />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="We are using a camera to photo goods with defect." />
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="Нам необходим доступ к вашей камере для фотографий паспорта и лица" />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Нам необходим доступ к вашей камере для фотографий паспорта и лица" />
     </plugin>
     <plugin name="cordova-plugin-ios-camera-permissions" spec="1.2.0">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value="We are using a camera to photo goods with defect." />
-        <variable name="PHOTOLIBRARY_ADD_USAGE_DESCRIPTION" value="We are using a camera to photo goods with defect." />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="We are using a camera to photo goods with defect." />
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="Нам необходим доступ к вашей камере для фотографий паспорта и лица" />
+        <variable name="PHOTOLIBRARY_ADD_USAGE_DESCRIPTION" value="Нам необходим доступ к вашей камере для фотографий паспорта и лица" />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Нам необходим доступ к вашей камере для фотографий паспорта и лица" />
     </plugin>
     <plugin name="cordova-plugin-statusbar" spec="2.4.3" />
     <plugin name="cordova-plugin-ionic-keyboard" />
+    <plugin name="cordova-plugin-inappbrowser" spec="3.1.0" />
     <feature name="CDVWKWebViewEngine">
         <param name="ios-package" value="CDVWKWebViewEngine" />
     </feature>

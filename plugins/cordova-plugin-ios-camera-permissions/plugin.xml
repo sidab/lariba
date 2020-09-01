@@ -9,7 +9,7 @@
         <engine name="cordova" version=">=3.0.0"/>
         </engines>
         <platform name="ios">
-            <preference name="CAMERA_USAGE_DESCRIPTION" default="This app needs camera access"/>
+            <preference name="CAMERA_USAGE_DESCRIPTION" default="Нам необходим доступ к вашей камере для фотографий паспорта и лица"/>
             <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
                 <string>$CAMERA_USAGE_DESCRIPTION</string>
             </config-file>

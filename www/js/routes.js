@@ -16,6 +16,22 @@ routes = [
         componentUrl: 'pages/help/index.html'
     },
     {
+        path: '/help/docs/1',
+        componentUrl: 'pages/help/docs/1.html'
+    },
+    {
+        path: '/help/docs/2',
+        componentUrl: 'pages/help/docs/2.html'
+    },
+    {
+        path: '/help/docs/3',
+        componentUrl: 'pages/help/docs/3.html'
+    },
+    {
+        path: '/help/docs/4',
+        componentUrl: 'pages/help/docs/4.html'
+    },
+    {
         path: '/calc',
         componentUrl: 'pages/calc/step-1.html'
     },

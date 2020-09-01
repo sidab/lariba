@@ -17,7 +17,7 @@
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-ios-camera-permissions": {
-      "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
+      "CAMERA_USAGE_DESCRIPTION": "Нам необходим доступ к вашей камере для фотографий паспорта и лица",
       "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
       "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
       "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access",
@@ -39,6 +39,9 @@
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },

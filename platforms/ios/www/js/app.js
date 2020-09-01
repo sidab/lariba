@@ -3,8 +3,8 @@ var $$ = Dom7;
 var app = new Framework7({
     root: '#app',
     name: 'LaRiba',
-    theme: 'auto',
-    version: 2.0,
+    theme: 'ios',
+    version: 2.5,
     routes: routes,
     init: false,
     dialog: {
@@ -30,7 +30,7 @@ var app = new Framework7({
         toolbarCloseText: 'Выбрать'
     },
     view: {
-        animate: true,
+        animate: false,
         iosDynamicNavbar: false,
         //mdPageLoadDelay: 100,
         stackPages: true,
@@ -272,6 +272,108 @@ var app = new Framework7({
                 }
             });
 
+        },
+        checkVersion: function (callback) {
+
+            var app = this;
+
+            app.request({
+                url: 'http://umakhan.tmweb.ru/lariba-config.php',
+                dataType: 'json',
+                async: false,
+                success: function (response) {
+
+                    var config = response;
+
+                    app.params.config = config;
+
+                    localStorage.config = JSON.stringify(config);
+
+                    let InAppBrowserParams = 'toolbarposition=top,closebuttoncolor=#FF8C00,closebuttoncaption=Закрыть,navigationbuttoncolor=#FF8C00,toolbarcolor=#eeeeee,hideurlbar=yes,fullscreen=no';
+
+                    var version;
+
+                    if (app.device.android) {
+
+                        version = config.vers.android;
+
+                    } else if (app.device.ios) {
+
+                        version = config.vers.ios;
+
+                    } else {
+
+                        version = config.version;
+
+                    }
+
+                    let sheet = app.sheet.create({
+                        content: `
+
+                            <div class="sheet-modal sheet-update">
+                            
+                                <div class="sheet-modal-inner">
+                                
+                                    <div class="block-title block-title-large">Вышла новая версия</div>
+                                    
+                                    <div class="margin">Мы выпустили новую версию приложения в которой исправили ошибки и повысили производительность. Настоятельно рекомендуем вам обновить приложение.</div>
+                                
+                                    <div class="margin">
+                                    
+                                        <button class="button button-fill button-large">Обновить</button>
+                                    
+                                    </div>
+                                
+                                </div>
+                            
+                            </div>
+
+                        `,
+                        backdrop: true,
+                        closeByBackdropClick: true,
+                        closeByOutsideClick: true,
+                        swipeToClose: true,
+                        on: {
+                            opened: function (sheet) {
+
+                                sheet.$el.find('.button').on('click', function () {
+
+                                    sheet.close();
+
+                                    if (app.device.ios) {
+
+                                        cordova.InAppBrowser.open(config.updateLink.ios, '_system', InAppBrowserParams);
+
+                                    } else {
+
+                                        cordova.InAppBrowser.open(config.updateLink.android, '_system', InAppBrowserParams);
+
+                                    }
+
+                                });
+
+                            }
+                        }
+                    });
+
+                    //if (version > app.version) {
+
+                        setTimeout(function () {
+
+                            sheet.open();
+
+                        }, 2000);
+
+                    //}
+
+                },
+                complete: function () {
+
+                    callback();
+
+                }
+            });
+
         }
     },
     on: {
@@ -297,14 +399,6 @@ $$(document).on('deviceready', function () {
             app.statusbar.hide();
             app.statusbar.show();
 
-            setTimeout(function () {
-
-                app.statusbar.setBackgroundColor('#0056f6');
-
-                app.statusbar.setTextColor('white');
-
-            }, 100);
-
         }
 
         navigator.splashscreen.hide();
@@ -327,71 +421,87 @@ $$(document).on('deviceready', function () {
         }
     });
 
-    app.methods.getRates();
+    if (localStorage.config) {
 
-    //app.methods.onesignal();
+        app.params.config = JSON.parse(localStorage.config);
 
-    app.views.create('#view-main', {
-        url: '/main',
-        //animate: app.device.ios ? true : false,
-        main: true
+    }
+
+    app.methods.checkVersion(function () {
+
+        app.methods.getRates();
+
+        app.views.create('#view-main', {
+            url: '/main',
+            //animate: app.device.ios ? true : false,
+            main: true
+        });
+
+        app.views.create('#view-plans', {
+            url: '/plans',
+            //animate: app.device.ios ? true : false
+        });
+
+        app.views.create('#view-calc', {
+            url: '/calc',
+            //animate: app.device.ios ? true : false
+        });
+
+        app.views.create('#view-help', {
+            url: '/help',
+            //animate: app.device.ios ? true : false
+        });
+
+        app.views.create('#view-contacts', {
+            url: '/contacts',
+            //animate: app.device.ios ? true : false
+        });
+
     });
 
-    app.views.create('#view-plans', {
-        url: '/plans',
-        //animate: app.device.ios ? true : false
-    });
+    if (!app.device.ios) {
 
-    app.views.create('#view-calc', {
-        url: '/calc',
-        //animate: app.device.ios ? true : false
-    });
-
-    app.views.create('#view-help', {
-        url: '/help',
-        //animate: app.device.ios ? true : false
-    });
-
-    app.views.create('#view-contacts', {
-        url: '/contacts',
-        //animate: app.device.ios ? true : false
-    });
-
-    if (app.device.android) {
-
-        var attachFastClick = Origami.fastclick;
+        let attachFastClick = Origami.fastclick;
 
         attachFastClick(document.body);
 
     }
 
-    //$$('.toolbar-menu').find('.tab-link[href="#view-main"]').addClass('display-none');
+    $$(window).on('keypress', 'input', function (e) {
 
-    //$$('.toolbar-menu').find('.tab-link[href="#view-plans"]').click();
+        if (e.which == 13) {
 
-    $$('.toolbar-menu').find('.tab-link').each(function (i) {
+            document.activeElement.blur();
 
-        let $this = $$(this);
+            $$(this).blur();
 
-        //tabOpen($this, i);
+            try {
+
+                Keyboard.hide();
+
+            } catch (error) {
+
+            }
+
+        }
 
     });
 
-    function tabOpen(tab, i) {
+    $$(window).on('touchmove', function (e) {
 
-        setTimeout(function () {
+        document.activeElement.blur();
 
-            tab.click();
+        $$('input').blur();
 
-        }, i * 200);
+        try {
 
-    }
+            Keyboard.hide();
 
-    setTimeout(function () {
+        } catch (error) {
 
-        //$$('.toolbar-menu').find('.tab-link:first-child').click();
+        }
 
-    }, 1000);
+    });
 
     $$(window).on('click', '.input-clear-button', function() {
 
