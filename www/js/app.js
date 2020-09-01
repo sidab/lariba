@@ -356,7 +356,7 @@ var app = new Framework7({
                         }
                     });
 
-                    //if (version > app.version) {
+                    if (version > app.version) {
 
                         setTimeout(function () {
 
@@ -364,7 +364,7 @@ var app = new Framework7({
 
                         }, 2000);
 
-                    //}
+                    }
 
                 },
                 complete: function () {
