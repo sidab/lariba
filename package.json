@@ -29,15 +29,13 @@
       "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
-      "browser",
-      "ios"
+      "browser"
     ]
   },
   "dependencies": {
     "cordova-browser": "^6.0.0",
-    "cordova-ios": "^5.1.1",
     "cordova-plugin-crosswalk-webview-arm": "^3.1.0",
-    "cordova-plugin-inappbrowser": "3.1.0",
+    "cordova-plugin-inappbrowser": "3.2.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-wkwebview-engine": "1.2.1",
     "cordova-plugin-wkwebview-file-xhr": "2.1.4",
