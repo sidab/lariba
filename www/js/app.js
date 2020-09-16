@@ -4,7 +4,7 @@ var app = new Framework7({
     root: '#app',
     name: 'LaRiba',
     theme: 'ios',
-    version: 2.8,
+    version: 2.9,
     routes: routes,
     init: false,
     dialog: {

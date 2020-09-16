@@ -65,11 +65,18 @@
                             <select name="plan">
 
                                 <option value="Не выбран" selected>Не выбран</option>
-                                <!--<option value="Стандарт">Стандарт (2 поручителя)</option>-->
+
+                                <option value="Стандарт">Стандарт (2 поручителя)</option>
+
                                 <option value="Эконом">Эконом (2 поручителя)</option>
+
                                 <option value="Упрощенный">Упрощенный (1 поручитель)</option>
-                                <!--<option value="Мини">Мини (3 поручителя + оформление в офисе)</option>-->
+
+                                <option value="Мини">Мини (3 поручителя + оформление в офисе)</option>
+
                                 <option value="Экспресс">Экспресс (Без поручителей)</option>
+
+                                <option value="Премиум">Премиум</option>
 
                             </select>
 
@@ -282,6 +289,14 @@
                 if (phone.val().length == 0) {
 
                     app.dialog.alert('Заполните поле "Телефон"', 'Внимание');
+
+                    return;
+
+                }
+
+                if (tarif.val().length == 0) {
+
+                    app.dialog.alert('Выберите тариф', 'Внимание');
 
                     return;
 
