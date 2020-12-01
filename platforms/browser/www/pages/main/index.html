@@ -286,7 +286,7 @@
 
                 }
 
-                if (phone.val().length == 0) {
+                if (phone.val().length < 16) {
 
                     app.dialog.alert('Заполните поле "Телефон"', 'Внимание');
 
@@ -310,41 +310,45 @@
 
                 }
 
-                page.find('.button-send').addClass('disabled');
+                app.dialog.confirm('Вы уверены что это ваш номер?', phone.val(), function () {
 
-                page.find('.button-send').find('.preloader').removeClass('display-none');
+                    page.find('.button-send').addClass('disabled');
 
-                page.find('.button-send').find('.text').addClass('display-none');
+                    page.find('.button-send').find('.preloader').removeClass('display-none');
 
-                app.request({
-                    url: 'http://umakhan.tmweb.ru/lariba.php',
-                    method: 'POST',
-                    //contentType: false,
-                    //processData: false,
-                    data: {
-                        good: good.val(),
-                        phone: phone.val(),
-                        tarif: tarif.val(),
-                        images: component.images
-                    },
-                    success: function () {
+                    page.find('.button-send').find('.text').addClass('display-none');
 
-                        app.dialog.alert('Ваша заявка принята ожидайте звонка, наш менеджер скоро свяжется с вами.', function () {
+                    app.request({
+                        url: 'http://umakhan.tmweb.ru/lariba.php',
+                        method: 'POST',
+                        //contentType: false,
+                        //processData: false,
+                        data: {
+                            good: good.val(),
+                            phone: phone.val(),
+                            tarif: tarif.val(),
+                            images: component.images
+                        },
+                        success: function () {
 
-                            app.views.current.router.refreshPage();
+                            app.dialog.alert('Ваша заявка принята ожидайте звонка, наш менеджер скоро свяжется с вами.', function () {
 
-                        });
+                                app.views.current.router.refreshPage();
 
-                    },
-                    error: function () {
+                            });
 
-                        app.dialog.alert('Произошла ошибка пожалуйста попробуйте позже.', function () {
+                        },
+                        error: function () {
 
-                            app.views.current.router.refreshPage();
+                            app.dialog.alert('Произошла ошибка пожалуйста попробуйте позже.', function () {
 
-                        });
+                                app.views.current.router.refreshPage();
 
-                    }
+                            });
+
+                        }
+                    });
+
                 });
 
             },
